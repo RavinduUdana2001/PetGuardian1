@@ -1,0 +1,77 @@
+#pet-categories {
+    background-color: #f9f9f9;
+    padding: 3rem 0;
+  }
+  
+  #pet-categories .icon-container {
+    transition: transform 0.3s ease;
+  }
+  
+  #pet-categories .icon-container:hover {
+    transform: scale(1.1);
+  }
+  
+  #pet-categories h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #pet-categories h3 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1rem;
+  }
+  
+  #pet-categories p {
+    color: #555;
+  }
+  
+  #pet-categories .btn {
+    margin-top: 1rem;
+    border-width: 2px;
+  }
+  
+  #pet-categories .bg-info {
+    background-color: #17a2b8 !important;
+  }
+  
+  #pet-categories .bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  #pet-categories .bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  #pet-categories .bg-danger {
+    background-color: #dc3545 !important;
+  }
+  
+  #pet-categories .bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+  #pet-categories .text-primary {
+    color: #007bff !important;
+  }
+  
+  #pet-categories .text-success {
+    color: #28a745 !important;
+  }
+  
+  #pet-categories .text-warning {
+    color: #ffc107 !important;
+  }
+  
+  #pet-categories .text-danger {
+    color: #dc3545 !important;
+  }
+  
+  #pet-categories .text-dark {
+    color: #343a40 !important;
+  }
+  
+  #pet-categories .rounded-circle {
+    border-radius: 50% !important;
+  }
+  

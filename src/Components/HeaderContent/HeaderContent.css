@@ -1,0 +1,29 @@
+/* Scrollable navbar only on smaller screens */
+@media (max-width: 991px) {
+    .scrollable-navbar {
+      max-height: 300px; /* Adjust height as needed */
+      overflow-y: auto;
+    }
+  
+    .navbar .navbar-nav {
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the left */
+    }
+  
+
+  }
+  
+  /* Maintain existing layout on larger screens */
+  @media (min-width: 992px) {
+    .scrollable-navbar .navbar-nav {
+      display: flex;
+      flex-direction: row; /* Align items horizontally */
+      align-items: center;
+    }
+  
+
+  }
+  
+
+  

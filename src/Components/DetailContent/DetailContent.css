@@ -1,0 +1,35 @@
+/* Ensure the feature icons are centered and styled nicely */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for feature titles and text */
+  .feature h3 {
+    font-weight: 700;
+  }
+  
+  .feature p {
+    font-size: 1rem;
+  }
+  
+  /* Style for the "Learn More" link */
+  .icon-link {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .icon-link:hover {
+    text-decoration: underline;
+  }
+  

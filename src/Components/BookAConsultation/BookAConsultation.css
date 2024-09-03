@@ -1,0 +1,147 @@
+.consultation-section {
+    background: url('../../assets/new.jpg') no-repeat center center/cover; /* Background image */
+    padding: 60px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .consultation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text contrast */
+    z-index: 1;
+  }
+  
+  .consultation-section .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .consultation-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better readability */
+  }
+  
+  .consultation-section p {
+    font-size: 1.2rem;
+  }
+  
+  .consultation-section .btn-light {
+    background-color: #fff;
+    color: #007bff;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #007bff; /* Border color for contrast */
+  }
+  
+  .consultation-section .btn-light:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .cta-container {
+    background: rgba(248, 249, 250, 0.7); /* More transparent background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 30px; /* Space between content and CTA */
+    position: relative;
+    z-index: 2; /* Ensure it's above other content */
+}
+
+  
+  .cta-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #343a40; /* Dark Gray for title */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+  }
+  
+  .cta-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .cta-list li {
+    font-size: 1.1rem;
+    color: #495057; /* Medium Gray for list items */
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px; /* Space for icon */
+  }
+  
+  .cta-list li::before {
+    content: '✔'; /* Checkmark icon */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: #007bff; /* Blue color for checkmark */
+  }
+  
+  .cta-text {
+    font-size: 1.1rem;
+    color: #495057; /* Medium Gray for descriptive text */
+  }
+  
+  .consultation-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    border: 2px solid #007bff; /* Border color to make it stand out */
+    position: relative;
+  }
+  
+  .consultation-form::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: rgba(0, 0, 0, 0.05); /* Light overlay for the form */
+    border-radius: 15px;
+    z-index: -1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .consultation-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da; /* Light gray border */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .consultation-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  .consultation-form .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .consultation-form .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,54 @@
+.background-container {
+  background-image: url('../../assets/bg2.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: 750px; /* Adjust height as needed */
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensures the wave can be positioned absolutely */
+  overflow: hidden; /* Prevents overflow and ensures wave fits */
+}
+
+.text-content {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text readability */
+  padding: 30px;
+  border-radius: 10px;
+  display: inline-block; /* Ensure the text content box fits the text */
+}
+
+.display-4 {
+  font-size: 3rem; /* Adjust font size */
+}
+
+.lead {
+  font-size: 1.25rem; /* Adjust font size */
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px; /* Adjust this height for the wave size */
+  overflow: hidden;
+  background-color: transparent; /* Ensure no background color interferes */
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(0); /* Ensure wave fits well */
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
