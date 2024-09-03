@@ -52,12 +52,12 @@
   
   .form-label {
     margin-bottom: 10px; /* Increase margin for better spacing */
-    font-weight: bold;
+    font-weight: 500;
   }
   
   .form-input {
     width: 100%;
-    padding: 15px; /* Increase padding for larger input fields */
+    padding: 5px; /* Increase padding for larger input fields */
     border: 1px solid #ced4da;
     border-radius: 4px;
   }

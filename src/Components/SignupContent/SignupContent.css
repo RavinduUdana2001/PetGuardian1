@@ -15,7 +15,7 @@
   
   .signup-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     font-size: 24px;
     color: #333333;
   }
@@ -32,17 +32,17 @@
   .signup-form-label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 500;
     color: #555555;
   }
   
   .signup-form-input,
   .signup-form-select {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #cccccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
   }
   
