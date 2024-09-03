@@ -1,71 +1,99 @@
 import React, { useEffect, useState } from 'react';
-
-const styles = {
-  container: {
-    padding: '20px',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
-  eventItem: {
-    padding: '15px',
-    marginBottom: '15px',
-    borderRadius: '8px',
-    backgroundColor: '#fff',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  },
-  title: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  },
-  image: {
-    maxWidth: '100%',
-    height: 'auto',
-    borderRadius: '4px',
-    marginBottom: '10px',
-  },
-  description: {
-    fontSize: '16px',
-    color: '#555',
-  },
-};
+import { getAllEvents } from '../../api/eventService'; // Adjust path as needed
+import { fetchRandomCatImage } from '../../api/imageService'; // Adjust path as needed
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const EventList = () => {
-  const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState([]);
+    const [popupMessage, setPopupMessage] = useState('');
+    const [popupType, setPopupType] = useState(''); // 'success' or 'error'
 
-  useEffect(() => {
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
     const fetchEvents = async () => {
-      try {
-        const response = await fetch('/api/events');
-        const data = await response.json();
-        setEvents(data);
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      }
+        try {
+            const data = await getAllEvents();
+            const eventsWithImages = await Promise.all(data.map(async (event) => {
+                const imageUrl = await fetchRandomCatImage();
+                return { ...event, imageUrl };
+            }));
+            setEvents(eventsWithImages);
+        } catch (error) {
+            setPopupMessage(`Error fetching events: ${error.message}`);
+            setPopupType('error');
+        }
     };
 
-    fetchEvents();
-  }, []);
+    const handleEventCreated = (newEvent) => {
+        setEvents((prevEvents) => [newEvent, ...prevEvents]);
+        setPopupMessage('Event added successfully!');
+        setPopupType('success');
+    };
 
-  return (
-    <div style={styles.container}>
-      <h2>Event List</h2>
-      {events.length > 0 ? (
-        events.map((event) => (
-          <div key={event.id} style={styles.eventItem}>
-            <h3 style={styles.title}>{event.title}</h3>
-            {event.image && <img src={event.image} alt={event.title} style={styles.image} />}
-            <p style={styles.description}>{event.description}</p>
-          </div>
-        ))
-      ) : (
-        <p>No events found.</p>
-      )}
-    </div>
-  );
+    return (
+        <div className="event-list container mt-5">
+            {popupMessage && (
+                <div className={`popup alert alert-${popupType === 'success' ? 'success' : 'danger'} alert-dismissible fade show`} role="alert">
+                    {popupMessage}
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            )}
+            {events.length === 0 ? (
+                <p className="no-events text-center">No events found.</p>
+            ) : (
+                <div className="row">
+                    {events.map((event) => (
+                        <div key={event.id} className="col-md-4 mb-4">
+                            <div className="card">
+                                <img src={event.imageUrl} alt="Event" className="card-img-top" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{event.title}</h5>
+                                    <p className="card-text">{event.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+            <style jsx>{`
+                .event-list {
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+                .popup {
+                    margin-bottom: 20px;
+                }
+                .card {
+                    border-radius: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.2s;
+                }
+                .card:hover {
+                    transform: scale(1.05);
+                }
+                .card-img-top {
+                    border-radius: 15px 15px 0 0;
+                    object-fit: cover;
+                    height: 200px;
+                }
+                .card-title {
+                    font-size: 1.25rem;
+                    color: #007bff;
+                }
+                .card-text {
+                    font-size: 1rem;
+                    color: #333;
+                }
+                .no-events {
+                    font-size: 1.25rem;
+                    color: #888;
+                }
+            `}</style>
+        </div>
+    );
 };
 
 export default EventList;

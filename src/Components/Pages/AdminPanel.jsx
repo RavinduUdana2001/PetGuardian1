@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import DashboardComponent from '../DashboardComponent/DashboardComponent';
 import UserRequests from '../UserRequests/UserRequests';
 import VeterinarianRequests from '../VeterinarianRequests/VeterinarianRequests';
 import EventCreation from '../EventCreation/EventCreation';
+import EventList from '../EventList/EventList';
 
-// Inline styles for simplicity
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
@@ -52,6 +52,24 @@ const styles = {
 };
 
 const AdminPanel = () => {
+  const [events, setEvents] = useState([]);
+
+  const fetchEvents = async () => {
+    const response = await fetch('http://localhost:8080/api/events');
+    if (response.ok) {
+      const data = await response.json();
+      setEvents(data);
+    }
+  };
+
+  const handleEventCreated = (newEvent) => {
+    setEvents((prevEvents) => [...prevEvents, newEvent]);
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -106,7 +124,8 @@ const AdminPanel = () => {
           <Route path="dashboard" element={<DashboardComponent />} />
           <Route path="user-requests" element={<UserRequests />} />
           <Route path="veterinarian-requests" element={<VeterinarianRequests />} />
-          <Route path="create-event" element={<EventCreation />} />
+          <Route path="create-event" element={<EventCreation onEventCreated={handleEventCreated} />} />
+          <Route path="event-list" element={<EventList events={events} />} />
         </Routes>
       </main>
     </div>
