@@ -1,5 +1,5 @@
 // LoginContent.jsx
-
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import './LoginContent.css';  // Import the CSS file
 import backpic from '../../assets/backpic3.jpg'; // Correctly import the image
@@ -50,7 +50,7 @@ function LoginContent() {
                 />
               </div>
               <button type='submit' className='submit-button mt-3'>Login</button>
-              <p className='mt-3 pdes'>Don't have an account? <a className='ades' href='/signup'>Register</a></p>
+              <p className='mt-3 pdes'>Don't have an account? <Link className='ades' to='/signup'>Register</Link></p>
             </form>
           </div>
         </div>
