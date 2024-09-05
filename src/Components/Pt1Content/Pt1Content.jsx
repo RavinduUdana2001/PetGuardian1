@@ -3,7 +3,7 @@ import './Pt1Content.css';
 
 function Pt1Content() {
   return (
-    <div className="container-fluid background-container">
+    <div className="container-fluid  background-container">
       <div className="row align-items-center h-100">
         <div className='col-lg-7 d-none d-lg-block'>
           {/* Optional: Add content or images for the left side on large screens */}

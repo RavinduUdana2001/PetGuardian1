@@ -17,7 +17,7 @@ function HomePage() {
       <HeaderContent/>
       <BodyContent/>
       <DetailContent/>
-      <EventList/>
+      <EventList/> 
       <SecondContent/>
       <PetCategories/>
       <BookAConsultation/>

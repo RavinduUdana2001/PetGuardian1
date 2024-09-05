@@ -25,3 +25,7 @@ export const getAllEvents = async () => {
     throw error;
   }
 };
+
+export const deleteEventById = async (id) => {
+  await axios.delete(`${API_URL}/${id}`);
+};

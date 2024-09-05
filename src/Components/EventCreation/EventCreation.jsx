@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { createEvent } from '../../api/eventService'; // Adjust this path similarly
+import EventList1 from '../EventList1/EventList1'; // Import EventList1
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const EventCreation = ({ onEventCreated }) => {
+const EventCreation = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
     const [popupType, setPopupType] = useState(''); // 'success' or 'error'
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [events, setEvents] = useState([]); // State to manage events
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,15 +22,21 @@ const EventCreation = ({ onEventCreated }) => {
             const result = await createEvent(event);
             setPopupMessage('Event created successfully!');
             setPopupType('success');
-            onEventCreated(result); // Notify parent component of new event
             setTitle('');
             setDescription('');
+            setEvents((prevEvents) => [result, ...prevEvents]); // Update events state with the new event
         } catch (error) {
             setPopupMessage(`Failed to create event: ${error.message}`);
             setPopupType('error');
         } finally {
             setIsSubmitting(false); // End the submission process
         }
+    };
+
+    const handleEventDeleted = () => {
+        // This function can be used to refresh or handle state updates if necessary
+        // For example, you can re-fetch events or update local state
+        // For simplicity, let's assume that the EventList1 component will handle its own state.
     };
 
     return (
@@ -56,9 +64,14 @@ const EventCreation = ({ onEventCreated }) => {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 required
+                                rows="4" // Adjust the height of the textarea
                             />
                         </div>
-                        <button type="submit" className="btn btn-primary mt-4" disabled={isSubmitting}>
+                        <button
+                            type="submit"
+                            className="btn btn-primary mt-4"
+                            disabled={isSubmitting}
+                        >
                             {isSubmitting ? 'Creating...' : 'Create Event'}
                         </button>
                     </form>
@@ -69,6 +82,9 @@ const EventCreation = ({ onEventCreated }) => {
                     )}
                 </div>
             </div>
+
+            {/* Render the EventList1 component */}
+            <EventList1 onEventDeleted={handleEventDeleted} />
         </div>
     );
 };

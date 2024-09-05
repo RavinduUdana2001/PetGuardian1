@@ -1,43 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { getAllEvents } from '../../api/eventService'; // Adjust path as needed
-import { fetchRandomCatImage } from '../../api/imageService'; // Adjust path as needed
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { fetchRandomCatImage } from '../../api/imageService'; // Import the function
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const EventList = () => {
+const EventList1 = ({ onEventDeleted }) => {
     const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true); // New loading state
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [popupMessage, setPopupMessage] = useState('');
     const [popupType, setPopupType] = useState(''); // 'success' or 'error'
 
     useEffect(() => {
+        // Fetch events from the backend API
+        const fetchEvents = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/events');
+                const eventsWithImages = await Promise.all(response.data.map(async (event) => {
+                    const imageUrl = await fetchRandomCatImage(); // Fetch a random cat image
+                    return { ...event, imageUrl };
+                }));
+                setEvents(eventsWithImages);
+            } catch (err) {
+                setError('Failed to fetch events.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchEvents();
     }, []);
 
-    const fetchEvents = async () => {
+    const handleDelete = async (id) => {
         try {
-            const data = await getAllEvents();
-            const eventsWithImages = await Promise.all(data.map(async (event) => {
-                const imageUrl = await fetchRandomCatImage();
-                return { ...event, imageUrl };
-            }));
-            setEvents(eventsWithImages);
-        } catch (error) {
-            setPopupMessage(`Error fetching events: ${error.message}`);
+            await axios.delete(`http://localhost:8080/api/events/${id}`);
+            setEvents(events.filter((event) => event.id !== id));
+            onEventDeleted(); // Notify parent component or trigger any necessary action
+            setPopupMessage('Event deleted successfully!');
+            setPopupType('success');
+        } catch (err) {
+            setError('Failed to delete event.');
+            console.error(err);
+            setPopupMessage('Error deleting event.');
             setPopupType('error');
-        } finally {
-            setLoading(false); // Set loading to false after fetching
         }
     };
 
-    const handleEventCreated = (newEvent) => {
-        setEvents((prevEvents) => [newEvent, ...prevEvents]);
-        setPopupMessage('Event added successfully!');
-        setPopupType('success');
-    };
-
-    if (loading) {
-        return <div className="text-center mt-5">Loading...</div>; // Display loading message
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
     return (
         <div className="event-list container mt-5">
@@ -48,16 +58,27 @@ const EventList = () => {
                 </div>
             )}
             {events.length === 0 ? (
-                <p className="no-events text-center">No events found.</p> // Display no events message
+                <p className="no-events text-center">No events found.</p>
             ) : (
                 <div className="row">
                     {events.map((event) => (
                         <div key={event.id} className="col-md-4 mb-4">
                             <div className="card">
-                                <img src={event.imageUrl} alt="Event" className="card-img-top" />
+                                <img
+                                    src={event.imageUrl || 'https://via.placeholder.com/300'}
+                                    alt={event.title}
+                                    className="card-img-top"
+                                    onError={(e) => e.target.src = 'https://via.placeholder.com/300'} // Fallback image
+                                />
                                 <div className="card-body">
                                     <h5 className="card-title">{event.title}</h5>
                                     <p className="card-text">{event.description}</p>
+                                    <button
+                                        onClick={() => handleDelete(event.id)}
+                                        className="btn btn-danger"
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -77,9 +98,6 @@ const EventList = () => {
                     border-radius: 15px;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                     transition: transform 0.2s;
-                }
-                .card:hover {
-                    transform: scale(1.05);
                 }
                 .card-img-top {
                     border-radius: 15px 15px 0 0;
@@ -103,4 +121,4 @@ const EventList = () => {
     );
 };
 
-export default EventList;
+export default EventList1;

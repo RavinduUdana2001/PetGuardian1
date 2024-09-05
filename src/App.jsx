@@ -5,9 +5,9 @@ import LoginContent from './Components/LoginContent/LoginContent';
 import SignupContent from './Components/SignupContent/SignupContent';
 import HomePage from './Components/Pages/HomePage';
 import AboutPage from './Components/Pages/AboutPage';
-import ContactPage from './Components/Pages/ContactPage';
 import PettrainingPage from './Components/Pages/PettrainingPage';
-import AdminPanel from './Components/Pages/AdminPanel'; // Import AdminPanel
+import ChannelPet from './Components/Pages/ChannelPet';
+import AdminPanel from './Components/Pages/AdminPanel'; 
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/pet-training" element={<PettrainingPage />} />
+        <Route path="/channel-your-pet" element={<ChannelPet/>} />
         <Route path="/login" element={<LoginContent />} />
         <Route path="/signup" element={<SignupContent />} />
         

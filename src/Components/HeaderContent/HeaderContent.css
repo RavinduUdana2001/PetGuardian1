@@ -26,4 +26,91 @@
   }
   
 
-  
+  /* HeaderContent.css */
+
+/* Navbar */
+.navbar {
+  background-color: #d7ebfb !important; /* Same background color */
+  height: auto !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+  transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+  border-radius: 5px;
+}
+
+.navbar:hover {
+  background-color: #f0c040; /* Slightly darker on hover */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+  color: #ff8800 !important; /* Hover effect for brand */
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Nav Links */
+.nav-link {
+  font-size: 1.1rem;
+  color: #333 !important;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out, transform 0.3s;
+}
+
+.nav-link:hover {
+  color: #000000 !important; /* Hover color for links */
+  transform: scale(1.1); /* Slight scale effect */
+ text-decoration: underline;
+
+}
+
+/* Dropdown Links */
+.dropdown-item {
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+/* Button Styles */
+.btn-primary {
+  background-color: #007bff !important;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #4989fe !important;
+
+}
+
+/* Responsive Dropdown and Buttons */
+@media (max-width: 992px) {
+  .nav-item {
+    margin-bottom: 1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+   
+  }
+}
+
+/* Misc */
+.dropdown-divider {
+  border-top: 1px solid #ff8800;
+}
+
+/* Small screen adjustments */
+.d-lg-none .dropdown-toggle {
+  font-size: 1.2rem;
+  color: #ff8800;
+}
+

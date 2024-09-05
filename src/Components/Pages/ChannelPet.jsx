@@ -1,16 +1,16 @@
 import React from 'react'
 import HeaderContent from '../HeaderContent/HeaderContent'
+import BookAConsultation from '../BookAConsultation/BookAConsultation'
 import FooterContent from '../FooterContent/FooterContent'
 
-
-function ContactPage() {
+function ChannelPet() {
   return (
     <div>
         <HeaderContent/>
-        <h1 className='fs-1 text-center'>Contact Page</h1>
+        <BookAConsultation/>
         <FooterContent/>
     </div>
   )
 }
 
-export default ContactPage
+export default ChannelPet
