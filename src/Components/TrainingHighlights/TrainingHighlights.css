@@ -1,0 +1,20 @@
+.training-highlights {
+    background-color: #f9f9f9;
+  }
+  
+  .highlight-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  h3 {
+    color: #0056b3;
+  }
+  

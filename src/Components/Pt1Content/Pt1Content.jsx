@@ -3,15 +3,17 @@ import './Pt1Content.css';
 
 function Pt1Content() {
   return (
-    <div className="container-fluid  background-container">
+    <div className="container-fluid background-container">
       <div className="row align-items-center h-100">
         <div className='col-lg-7 d-none d-lg-block'>
           {/* Optional: Add content or images for the left side on large screens */}
         </div>
         <div className='col-lg-5 text-center text-lg-start'>
           <div className="text-content">
-            <h1 className="display-4 fw-bold mb-4">Train Your Pet</h1>
-            <p className="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nam enim repudiandae, delectus libero ipsum et obcaecati odio quisquam officia similique? Atque inventore perspiciatis ex ratione rerum nulla eum eos.</p>
+            <h1 className="display-4 fw-bold mb-4 text-center">Train Your Pet with Pet Guardian</h1>
+            <p className="lead mb-4">
+              Enhance your pet’s behavior and strengthen your bond with our expert training services. Tailored to meet your pet’s needs, our programs ensure effective learning and a happy companion.
+            </p>
           </div>
         </div>
       </div>

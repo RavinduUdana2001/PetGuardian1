@@ -1,0 +1,38 @@
+.vision-mission-section {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 50px 0; /* Spacing for top and bottom */
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .icon {
+    font-size: 3rem;
+    color: #007bff; /* Blue color for icons */
+  }
+  
+  .vision-icon {
+    color: #17a2b8; /* Teal color for Vision icon */
+  }
+  
+  .mission-icon {
+    color: #28a745; /* Green color for Mission icon */
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .section-description {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  

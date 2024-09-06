@@ -1,7 +1,10 @@
+.carousel-item {
+  transition: transform 1.9s ease-in-out !important; /* Smooth transition with 1.5 seconds duration */
+}
 
 
 .carousel-image {
-  max-height: 500px;
+  max-height: 450px;
   object-fit: cover;
 }
 

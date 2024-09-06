@@ -10,15 +10,14 @@ function DescriptionSection() {
           <img src={descriptionImage} alt="Pet Guardians" className="img-fluid rounded shadow mb-4" />
         </div>
         <div className="col-md-6">
-          <h2 className="mb-4">Welcome to Pet Guardians</h2>
+          <h2 className="mb-4">Join Our Pet Guardians Family</h2>
           <p className="lead mb-3">
-            At Pet Guardians, we are passionate about ensuring your pets live their happiest and healthiest lives. Our extensive range of services and products is designed to cater to every aspect of pet care, from nutrition to training.
+            At Pet Guardians, your pet’s well-being is at the heart of everything we do. Whether you're looking for expert advice, premium products, or services tailored to your furry friend’s needs, we’ve got you covered.
           </p>
-    
           <p className="mb-4">
-            Dive into our site to find valuable resources, shop for the best products, and learn how we can support your journey as a pet owner. We're here to make pet care enjoyable and stress-free.
+            Our community of pet lovers is growing every day, and we invite you to be part of this journey. Explore our comprehensive resources and let us help you provide the best care for your pets—because they deserve nothing less.
           </p>
-          <a href="#services" className="btn btn-primary">Discover Our Services</a>
+          
         </div>
       </div>
     </div>
