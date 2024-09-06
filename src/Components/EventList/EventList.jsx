@@ -41,6 +41,7 @@ const EventList = () => {
 
     return (
         <div className="event-list container mt-5">
+            <h2 className='fs-1 text-center mb-5'>Special Events</h2>
             {popupMessage && (
                 <div className={`popup alert alert-${popupType === 'success' ? 'success' : 'danger'} alert-dismissible fade show`} role="alert">
                     {popupMessage}

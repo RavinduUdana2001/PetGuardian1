@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginContent from './Components/LoginContent/LoginContent';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import SignupContent from './Components/SignupContent/SignupContent';
 import HomePage from './Components/Pages/HomePage';
 import AboutPage from './Components/Pages/AboutPage';
@@ -12,6 +13,7 @@ import AdminPanel from './Components/Pages/AdminPanel';
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
