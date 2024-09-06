@@ -5,7 +5,7 @@ function Testimonials() {
   return (
     <section className="testimonials-section py-5">
       <div className="container">
-        <h2 className="testimonials-title text-center display-4 fw-bold mb-4">What Our Clients Say</h2>
+        <h2 className="testimonials-title text-center display-4 fw-bold mb-4 fs-1">What Our Clients Say</h2>
         <p className="testimonials-intro text-center lead mb-5">
           Hear from those who have experienced our pet training first-hand.
         </p>

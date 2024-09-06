@@ -3,11 +3,11 @@ import './BookAConsultation.css';
 
 function BookAConsultation() {
   return (
-    <section className="consultation-section">
+    <section className="consultation-section mt-4 mt-lg-0">
       <div className="container text-center">
         <div className="row align-items-center">
           <div className="col-md-6 text-light">
-            <h2 className="mb-4 text-white">Consult Our Expert Vets</h2>
+            <h2 className="mb-4 text-white mt-5 mt-lg-2">Consult Our Expert Vets</h2>
             <p className="lead mb-4">
               Our dedicated veterinarians are here to provide top-notch care and advice for your beloved pets. Schedule a consultation to receive expert guidance and personalized treatment.
             </p>

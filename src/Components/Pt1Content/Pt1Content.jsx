@@ -10,7 +10,7 @@ function Pt1Content() {
         </div>
         <div className='col-lg-5 text-center text-lg-start'>
           <div className="text-content">
-            <h1 className="display-4 fw-bold mb-4 text-center">Train Your Pet with Pet Guardian</h1>
+            <h1 className="display-4 fw-bold mb-4 text-center fs-1">Train Your Pet with Pet Guardian</h1>
             <p className="lead mb-4">
               Enhance your pet’s behavior and strengthen your bond with our expert training services. Tailored to meet your pet’s needs, our programs ensure effective learning and a happy companion.
             </p>

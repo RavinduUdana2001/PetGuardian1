@@ -5,7 +5,7 @@ function TrainingHighlights() {
   return (
     <section className="training-highlights py-5">
       <div className="container text-center">
-        <h2 className="display-4 fw-bold mb-4">Why Choose Our Training?</h2>
+        <h2 className="display-4 fw-bold mb-4 fs-1">Why Choose Our Training?</h2>
         <p className="lead mb-5">
           Our training programs are designed to make a difference. Here’s why we stand out:
         </p>
